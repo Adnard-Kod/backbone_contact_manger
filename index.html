@@ -11,6 +11,9 @@
     <div class="row">
       <h1>Contact Manger</h1>
     </div>
+    <div class="row">
+      <div id="filter"><label>Show me:</label></div>
+    </div>
     <div id="contacts" class="row"></div>
   </div>
 
@@ -19,9 +22,9 @@
   <script src="js/vendor/backbone.js"></script>
   <script src="js/models/user.js"></script>
   <script src="js/collections/users.js"></script>
-  <script src="js/data.js"></script>
   <script src="js/views/menu.js"></script>
   <script src="App.js"></script>
+  <script src="js/data.js"></script>
   <script id="contactTemplate" type="text/template">
     <div class="col-md-6">
       <img class="img-thumbnail" src="<%= photo %>" alt="<%= name %>" />

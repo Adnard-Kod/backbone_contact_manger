@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Manger</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h1>Contact Manger</h1>
+    </div>
+    <div id="contacts" class="row"></div>
+  </div>
+
+  <script src="js/vendor/jquery-1.10.2.min.js"></script>
+  <script src="js/vendor/underscore.js"></script>
+  <script src="js/vendor/backbone.js"></script>
+  <script src="js/models/user.js"></script>
+  <script src="js/collections/users.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/views/menu.js"></script>
+  <script src="App.js"></script>
+  <script id="contactTemplate" type="text/template">
+    <div class="col-md-6">
+      <img class="img-thumbnail" src="<%= photo %>" alt="<%= name %>" />
+      <h3><%= name %><span><%= type %></span></h3>
+      <div><%= address %></div>
+      <dl>
+        <dt>Tel:</dt><dd><%= tel %></dd>
+        <dt>Email:</dt><dd><a href="mailto:<%= email %>"><%= email %></a></dd>
+      </dl>
+    </div>
+  </script>
+</body>
+</html>

@@ -18,6 +18,7 @@ $(document).ready(function() {
       this.render();
       this.on("change:filterType", this.filterBytype, this);
       this.collection.on("reset", this.render, this);
+      this.filterType = null;
     },
     events: {
       "change #filter select": "setFilter"
@@ -55,18 +56,20 @@ $(document).ready(function() {
     },
     setFilter: function(e) {
       this.filterType = e.currentTarget.value;
-      this.filterBytype(this.filterType)
+      this.trigger("change:filterType");
     },
-    filterBytype: function(filter) {
+    filterBytype: function() {
+      var filterType = this.filterType
       if(this.filterType === "all"){
         this.collection.reset(contacts);
       } else {
         this.collection.reset(contacts, {silent: true});
         var filtered = _.filter(this.collection.models, function(item) {
-          return item.get("type").toLowerCase() === filter;
+          return item.get("type").toLowerCase() === filterType;
         })
         this.collection.reset(filtered);
       }
+      contactsRouter.navigate("filter/" + filterType);
     }
   });
 
